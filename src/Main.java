@@ -1,4 +1,3 @@
-
 import com.pi4j.io.gpio.*;
 
 
@@ -8,14 +7,14 @@ public class Main {
     private static GpioPinDigitalInput sensorEchoPin ;
 
 
-    private final static GpioController gpio = GpioFactory.getInstance();
+    final GpioController gpio = GpioFactory.getInstance();
 
     public static void main(String [] args) throws InterruptedException{
         new Main().run();
     }
     public void run() throws InterruptedException{
-        sensorTriggerPin =  gpio.provisionDigitalOutputPin(RaspiPin.GPIO_04); // Trigger pin as OUTPUT
-        sensorEchoPin = gpio.provisionDigitalInputPin(RaspiPin.GPIO_17,PinPullResistance.PULL_DOWN); // Echo pin as INPUT
+        sensorTriggerPin =  gpio.provisionDigitalOutputPin(RaspiPin.GPIO_00); // Trigger pin as OUTPUT
+        sensorEchoPin = gpio.provisionDigitalInputPin(RaspiPin.GPIO_02,PinPullResistance.PULL_DOWN); // Echo pin as INPUT
 
         while(true){
             try {
@@ -42,4 +41,3 @@ public class Main {
         }
     }
 }
-// :)
